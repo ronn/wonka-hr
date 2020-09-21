@@ -2,26 +2,58 @@ package com.ronn.wonkahr.web.controller;
 
 import com.ronn.wonkahr.oompaloompa.model.OompaLoompa;
 import com.ronn.wonkahr.oompaloompa.service.OompaLoompaService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ronn.wonkahr.web.controller.model.OompaLoompaDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/oompa-loompa")
 public class OompaLoompaController {
 
-  @Autowired
-  OompaLoompaService service;
+  private final OompaLoompaService service;
+
+  public OompaLoompaController(OompaLoompaService service) {
+    this.service = service;
+  }
 
   @GetMapping
-  ResponseEntity<List<OompaLoompa>> getAll(){
-    List<OompaLoompa> all = service.getAll();
+  ResponseEntity<List<OompaLoompaDto>> getAll() {
+    List<OompaLoompaDto> all = service.getAll()
+        .stream()
+        .map(OompaLoompaDto::fromEntity)
+        .collect(toList());
 
-    return new ResponseEntity<>(all, HttpStatus.OK);
+    return ResponseEntity.ok(all);
+  }
+
+  @GetMapping("/{name}")
+  ResponseEntity<OompaLoompa> getOneBy(@PathVariable String name) {
+    Optional<OompaLoompa> oompaLoompa = service.getBy(name);
+
+    return ResponseEntity.of(oompaLoompa);
+  }
+
+  @PostMapping
+  ResponseEntity<Object> save(@RequestBody OompaLoompa oompaLoompa) {
+    return service.save(oompaLoompa)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.status(HttpStatus.CONFLICT)
+            .body("Oompa Loompa " + oompaLoompa.getName() + " already exists.")
+        );
+  }
+
+  @PutMapping
+  ResponseEntity<Object> update(@RequestBody OompaLoompa oompaLoompa) {
+    return service.update(oompaLoompa)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body("Oompa Loompa " + oompaLoompa.getName() + " does not exists.")
+        );
   }
 }
