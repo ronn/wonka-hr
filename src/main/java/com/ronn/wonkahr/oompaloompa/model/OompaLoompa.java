@@ -1,23 +1,40 @@
 package com.ronn.wonkahr.oompaloompa.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class OompaLoompa {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-  @GenericGenerator(name = "native", strategy = "native")
-  private Long id;
   private String name;
-  private String age;
+  private Integer age;
   private String job;
-  private String height;
-  private String weight;
+  private Double height;
+  private Double weight;
   private String description;
+
+  public String getName() {
+    return name;
+  }
+
+  public Integer getAge() {
+    return age;
+  }
+
+  public String getJob() {
+    return job;
+  }
+
+  public Double getHeight() {
+    return height;
+  }
+
+  public Double getWeight() {
+    return weight;
+  }
+
+  public String getDescription() {
+    return description;
+  }
 }
