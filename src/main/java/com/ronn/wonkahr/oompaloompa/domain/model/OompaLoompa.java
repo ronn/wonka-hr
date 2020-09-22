@@ -1,4 +1,4 @@
-package com.ronn.wonkahr.oompaloompa.model;
+package com.ronn.wonkahr.oompaloompa.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,6 +13,13 @@ public class OompaLoompa {
   private Double height;
   private Double weight;
   private String description;
+
+  public OompaLoompa() {
+  }
+
+  public OompaLoompa(String name) {
+    this.name = name;
+  }
 
   public String getName() {
     return name;
