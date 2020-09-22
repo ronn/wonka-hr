@@ -1,6 +1,6 @@
 package com.ronn.wonkahr.oompaloompa.repository;
 
-import com.ronn.wonkahr.oompaloompa.model.OompaLoompa;
+import com.ronn.wonkahr.oompaloompa.domain.model.OompaLoompa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

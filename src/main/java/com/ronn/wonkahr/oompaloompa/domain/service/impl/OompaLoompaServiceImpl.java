@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OompaLoompaService {
+public class OompaLoompaServiceImpl {
 
   private final OompaLoompaRepository repo;
 
-  public OompaLoompaService(OompaLoompaRepository repo) {
+  public OompaLoompaServiceImpl(OompaLoompaRepository repo) {
     this.repo = repo;
   }
 
