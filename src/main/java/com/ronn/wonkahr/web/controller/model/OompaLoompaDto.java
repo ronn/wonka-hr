@@ -1,6 +1,6 @@
 package com.ronn.wonkahr.web.controller.model;
 
-import com.ronn.wonkahr.oompaloompa.model.OompaLoompa;
+import com.ronn.wonkahr.oompaloompa.domain.model.OompaLoompa;
 
 public class OompaLoompaDto {
 
