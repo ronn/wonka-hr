@@ -1,7 +1,8 @@
 package com.ronn.wonkahr.web.controller;
 
-import com.ronn.wonkahr.oompaloompa.model.OompaLoompa;
-import com.ronn.wonkahr.oompaloompa.service.OompaLoompaService;
+import com.ronn.wonkahr.oompaloompa.domain.model.OompaLoompa;
+import com.ronn.wonkahr.oompaloompa.domain.service.OompaLoompaService;
+import com.ronn.wonkahr.oompaloompa.domain.service.impl.OompaLoompaServiceImpl;
 import com.ronn.wonkahr.web.controller.model.OompaLoompaDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class OompaLoompaController {
 
   private final OompaLoompaService service;
 
-  public OompaLoompaController(OompaLoompaService service) {
+  public OompaLoompaController(OompaLoompaServiceImpl service) {
     this.service = service;
   }
 
