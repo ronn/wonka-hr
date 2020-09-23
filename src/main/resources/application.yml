@@ -1,1 +1,17 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
 
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  datasource:
+    url: jdbc:mysql://docker-mysql:3306/wonkadb
+    username: root
+    password: root
+
+server:
+  servlet:
+    context-path: /wonka-hr
