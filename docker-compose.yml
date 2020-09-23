@@ -1,0 +1,21 @@
+version: '3'
+services:
+  docker-mysql:
+    restart: always
+    container_name: docker-mysql
+    image: mysql
+    environment:
+      MYSQL_DATABASE: wonkadb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+
+  wonka-hr:
+    build: ./
+    expose:
+      - "8080"
+    ports:
+      - 80:8080
+    depends_on:
+      - docker-mysql
