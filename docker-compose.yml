@@ -13,6 +13,8 @@ services:
 
   wonka-hr:
     build: ./
+    tty: true
+    stdin_open: true
     expose:
       - "8080"
     ports:
