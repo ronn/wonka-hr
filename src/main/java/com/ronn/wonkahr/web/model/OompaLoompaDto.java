@@ -1,4 +1,4 @@
-package com.ronn.wonkahr.web.controller.model;
+package com.ronn.wonkahr.web.model;
 
 import com.ronn.wonkahr.oompaloompa.domain.model.OompaLoompa;
 

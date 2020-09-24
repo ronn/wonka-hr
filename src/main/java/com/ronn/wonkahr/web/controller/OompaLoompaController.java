@@ -3,7 +3,7 @@ package com.ronn.wonkahr.web.controller;
 import com.ronn.wonkahr.oompaloompa.domain.model.OompaLoompa;
 import com.ronn.wonkahr.oompaloompa.domain.service.OompaLoompaService;
 import com.ronn.wonkahr.oompaloompa.domain.service.impl.OompaLoompaServiceImpl;
-import com.ronn.wonkahr.web.controller.model.OompaLoompaDto;
+import com.ronn.wonkahr.web.model.OompaLoompaDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
